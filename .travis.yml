@@ -6,7 +6,7 @@ before_install:
   - docker build -t firuciak/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker -e CI=true firuciak/react-test npm test
+  - docker run -e CI=true firuciak/react-test npm test
 
 after_success:
   - docker build -t firuciak/multi-client -f ./client
